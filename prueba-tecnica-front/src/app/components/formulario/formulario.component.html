@@ -6,44 +6,44 @@
 				<form>
 					<label for="chk" aria-hidden="true">Formulario</label>
 
-					<input type="text" name="txt" placeholder="Nombre Completo" required=""
+					<input type="text" placeholder="Nombre Completo" 
 					name="nombre" #nombre="ngModel" [(ngModel)]="fichaModelPost.nombre">
 
-                    <input type="text" name="txt" placeholder="Carnet" required="" maxlength="6" onkeypress="return ((event.charCode >= 49 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"
-					carnet="carnet" #carnet="ngModel" [(ngModel)]="fichaModelPost.carnet">
+                    <input type="text" placeholder="Carnet"  maxlength="6" onkeypress="return ((event.charCode >= 49 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"
+					name="carnet" #carnet="ngModel" [(ngModel)]="fichaModelPost.carnet">
 
-                    <input type="text" name="txt" placeholder="Dirección" required=""
-					direccion="direccion" #direccion="ngModel" [(ngModel)]="fichaModelPost.direccion">
+                    <input type="text" placeholder="Dirección" 
+					name="direccion" #direccion="ngModel" [(ngModel)]="fichaModelPost.direccion">
 					
-                    <select type="text center" name="txt" id="select" >
+                    <select type="text center" id="select" name="genero" #genero="ngModel" [(ngModel)]="fichaModelPost.genero">
 						<option value="" disabled selected hidden>Genero</option>
-						<option *ngFor="let pr of Genero" [value]="pr.genero">{{pr.genero}}</option>
+						<option *ngFor="let pr of tipoGenero" [value]="pr.genero">{{pr.genero}}</option>
 					</select>
 
-                    <input type="text" name="txt" placeholder="Teléfono" required="" maxlength="8" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
-					telefono="telefono" #telefono="ngModel" [(ngModel)]="fichaModelPost.telefono">
+                    <input type="text" placeholder="Teléfono"  maxlength="8" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+					name="telefono" #telefono="ngModel" [(ngModel)]="fichaModelPost.telefono">
 
-                    <input type="date" name="txt" placeholder="Fecha de nacimiento" id="select" required=""
-					fechaNacimiento="fechaNacimiento" #fechaNacimiento="ngModel" [(ngModel)]="fichaModelPost.fechaNacimiento">
+                    <input type="date" placeholder="Fecha de nacimiento" id="select" 
+					name="fechaNacimiento" #fechaNacimiento="ngModel" [(ngModel)]="fichaModelPost.fechaNacimiento">
 
-					<input type="text" name="txt" placeholder="Carrera" required=""
-					carrera="carrera" #carrera="ngModel" [(ngModel)]="fichaModelPost.carrera">
+					<input type="text" placeholder="Carrera" 
+					name="carrera" #carrera="ngModel" [(ngModel)]="fichaModelPost.carrera">
 
-                    <select type="text center" name="txt" id="select" >
+                    <select type="text center" id="select" name="generoDePoesia" #generoDePoesia="ngModel" [(ngModel)]="fichaModelPost.generoDePoesia">
 						<option value="" disabled selected hidden>Genero Poetico</option>
 						<option *ngFor="let pr of GeneroPO" [value]="pr.genero">{{pr.genero}}</option>
 					</select>
 					
-					<button (click)="solicitudFicha()" routerLink="/reporte">Enviar</button>
+					<button (click)="solicitudFicha()" >Enviar</button>
 				</form>
 			</div>
 
 			<div class="login ">
-				<form>
 					<label for="chk" aria-hidden="true">+ info</label>
 					<h1 class="p-3">Evento de poesía!!</h1>
                 <p class="p-3">La Universidad de Guatemala tendrá un evento de poesía y se ha emitido invitación a todos los jóvenes estudiantes a participar</p>
-				</form>
+
+				<button routerLink="/reporte">Reporte</button>
 			</div>
 	</div>
 </body>

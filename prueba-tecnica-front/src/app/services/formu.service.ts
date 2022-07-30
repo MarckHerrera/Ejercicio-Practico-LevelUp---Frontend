@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Ficha } from '../models/formulario.model';
+import { Ficha } from '../models/fichaSolicitud.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,16 +9,18 @@ import { Ficha } from '../models/formulario.model';
 export class FormuService {
 
   public url : String = 'http://localhost:3000/api';
-  public headersVariable = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(public _http: HttpClient) { }
 
-  solicitudFicha(modeloFormulario: Ficha) : Observable<any> {
+  RegistrarFicha(modeloFicha: Ficha) : Observable<any>{
+    
+    
+    let parametros = JSON.stringify(modeloFicha);
 
-    let parametros = JSON.stringify(modeloFormulario);
-
-    return this._http.post(this.url + '/solicitudFicha', parametros);
+    console.log(parametros);
+    return this._http.post(this.url + '/solicitudFicha', parametros)
   }
+
 
   verFicha() : Observable<any> {
 
