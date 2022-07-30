@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class FormularioComponent implements OnInit {
   public fichaModelPost: Ficha;
+  public fichaModelGet: Ficha;
 
   constructor(public _formularioService: FormuService) {
     this.fichaModelPost = new Ficha(
@@ -24,7 +25,13 @@ export class FormularioComponent implements OnInit {
       new Date,
       "",
       "",
+      new Date,
+      new Date,
+      "",
+      "",
+      "",
     )
+
    }
 
     tipoGenero = [{genero:"M"},{genero:"F"}]
@@ -32,6 +39,7 @@ export class FormularioComponent implements OnInit {
 
 
   ngOnInit(): void {
+
   }
 
   solicitudFicha(){
@@ -39,6 +47,13 @@ export class FormularioComponent implements OnInit {
     this._formularioService.RegistrarFicha(this.fichaModelPost).subscribe(
       (response)=>{
         this.fichaModelPost.nombre = "";
+        this.fichaModelPost.carnet = "";
+        this.fichaModelPost.direccion = "";
+        this.fichaModelPost.carrera = "";
+        this.fichaModelPost.generoDePoesia = "";
+        this.fichaModelPost.genero = "";
+        this.fichaModelPost.telefono = "";
+        this.fichaModelPost.fechaNacimiento = new Date;
 
 
 
@@ -61,4 +76,5 @@ export class FormularioComponent implements OnInit {
 
     )
   }
+
 }

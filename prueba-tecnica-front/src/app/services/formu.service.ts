@@ -11,14 +11,16 @@ export class FormuService {
   public url : String = 'http://localhost:3000/api';
 
   constructor(public _http: HttpClient) { }
+  public headersVariable = new HttpHeaders().set('Content-Type', 'application/json')
+
 
   RegistrarFicha(modeloFicha: Ficha) : Observable<any>{
-    
-    
+
+
     let parametros = JSON.stringify(modeloFicha);
 
     console.log(parametros);
-    return this._http.post(this.url + '/solicitudFicha', parametros)
+    return this._http.post(this.url + '/solicitudFicha', parametros, {headers: this.headersVariable})
   }
 
 

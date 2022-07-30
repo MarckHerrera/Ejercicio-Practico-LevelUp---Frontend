@@ -8,5 +8,10 @@ export class Ficha {
         public fechaNacimiento: Date,
         public carrera: string,
         public generoDePoesia: string,
+        public fechaDeInscripcion: Date,
+        public fechaDeDeclamacion: Date,
+        public fechaNacimientoTxt: string,
+        public fechaDeInscripcionTxt: string,
+        public fechaDeDeclamacionTxt: string,
     ){}
 }
